@@ -277,10 +277,12 @@ key_bindings:
   - { key: Delete,                  chars: "\x1b[3~"                     }
 
     # shortcuts for tmux. the leader key is control-b (0x02)
-  - { key: W,        mods: Command, chars: "\x02&"                       }
-  - { key: T,        mods: Command, chars: "\x02c"                       }
-  - { key: LBracket, mods: Command, chars: "\x02p"                       }
-  - { key: RBracket, mods: Command, chars: "\x02n"                       }
+  - { key: W,        mods: Command,       chars: "\x02&"                 }  # close tab (kill)
+  - { key: T,        mods: Command,       chars: "\x02c"                 }  # new tab
+  - { key: RBracket, mods: Command|Shift, chars: "\x02n"                 }  # select next tab
+  - { key: LBracket, mods: Command|Shift, chars: "\x02p"                 }  # select previous tab
+  - { key: RBracket, mods: Command,       chars: "\x02o"                 }  # select next pane
+  - { key: LBracket, mods: Command,       chars: "\x02;"                 }  # select last (previously used) pane
 
 # Mouse bindings
 #
