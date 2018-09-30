@@ -13,28 +13,61 @@ env:
   # `infocmp xterm-256color`.
   TERM: xterm-256color-italic
 
-# Window dimensions in character columns and lines
-# (changes require restart)
-dimensions:
-  columns: 95
-  lines: 75
+window:
+  # Window dimensions (changes require restart)
+  #
+  # Specified in number of columns/lines, not pixels. If both are zero this
+  # setting is ignored.
+  dimensions:
+    # columns: 95
+    # lines: 75
+    columns: 192
+    lines: 150
 
-# Adds this many blank pixels of padding around the window
-# Units are physical pixels; this is not DPI aware.
-# (change requires restart)
-padding:
-  x: 2
-  y: 2
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is not scaled by
+  # DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 2
+    y: 2
 
-# The FreeType rasterizer needs to know the device DPI for best results
-# (changes require restart)
-dpi:
-  x: 220.0
-  y: 220.0
-  # x: 96.0
-  # y: 96.0
+  # Window decorations
+  #
+  # Available values:
+  # - full: borders and title bar
+  # - none: neither borders nor title bar
+  # - transparent: title bar, transparent background and title bar buttons
+  # - buttonless: title bar, transparent background, but no title bar buttons
+  decorations: full
+
+scrolling:
+  # maximum number of lines in the scrollback buffer. Specifying '0' will
+  # disable scrolling.
+  history: 0
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 3
+
+  # Faux Scrolling
+  #
+  # The `faux_multiplier` setting controls the number of lines the terminal
+  # should scroll when the alternate screen buffer is active. This is used to
+  # allow mouse scrolling for applications like `man`.
+  #
+  # Specifying `0` will disable faux scrolling.
+  faux_multiplier: 3
+
+  # Scroll to the bottom when new text is written to the terminal.
+  auto_scroll: false
 
 # Display tabs using this many cells (changes require restart)
+#
+# Some applications, like Emacs, rely on knowing about the width of a tab. To
+# prevent unexpected behavior in these applications, it's also required to
+# change the `it` value in terminfo when altering this setting.
+#
 tabspaces: 8
 
 # When true, bold text is drawn using the bright variant of colors.
@@ -43,42 +76,48 @@ draw_bold_text_with_bright_colors: true
 # Font configuration (changes require restart)
 font:
   # The normal (roman) font face to use.
+  # Style can be specified to pick a specific face.
   normal:
-    family: "Fira Code" # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
+    family: "Fira Code"
+    # family: "Source Code Pro"
     style: Retina
 
   # The bold font face
   bold:
-    family: "Fira Code" # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
+    family: "Fira Code"
+    # family: "Source Code Pro"
     style: Bold
 
   # The italic font face
   italic:
-    family: "Fira Code" # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
-    # style: Italic
+    # family: "Fira Code"
+    family: "Source Code Pro"
+    style: Italic
 
   # Point size of the font
-  size: 13.0
+  size: 14.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
   # the right, increase the y offset to move the glyph upward.
   glyph_offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
 
-  # OS X only: use thin stroke font rendering. Thin strokes are suitable
-  # for retina displays, but for non-retina you probably want this set to
-  # false.
+  # Scale the font size based on the monitor's DPI. This will lead to bigger
+  # text on HiDPI screens and make reading text a little easier.
+  scale_with_dpi: true
+
+  # Thin stroke font rendering (macOS only)
+  #
+  # Thin strokes are suitable for retina displays, but for non-retina you
+  # probably want this set to false.
   use_thin_strokes: true
 
 # Should display the render timer
@@ -296,10 +335,27 @@ key_bindings:
   - { key: LBracket, mods: Command,       chars: "\x02;"                       }  # select last (previously used) pane
   - { key: F,        mods: Command,       chars: "\x02/"                       }  # search (upwards) (see tmux.conf)
 
+mouse:
+  # Click settings
+  #
+  # The `double_click` and `triple_click` settings control the time
+  # alacritty should wait for accepting multiple clicks as one double
+  # or triple click.
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  selection:
+    semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+
+    # When set to `true`, selected text will be copied to the primary clipboard.
+    save_to_clipboard: false
+
 # Mouse bindings
 #
-# Currently doesn't support modifiers. Both the `mouse` and `action` fields must
-# be specified.
+# Available fields:
+# - mouse
+# - action
+# - mods (optional)
 #
 # Values for `mouse`:
 # - Middle
@@ -307,21 +363,22 @@ key_bindings:
 # - Right
 # - Numeric identifier such as `5`
 #
-# Values for `action`:
-# - Paste
-# - PasteSelection
-# - Copy (TODO)
+# All available `mods` and `action` values are documented in the key binding
+# section.
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 
-mouse:
-  double_click: { threshold: 300 }
-  triple_click: { threshold: 300 }
-
-selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+# Cursor style
+#
+# Values for 'cursor_style':
+#   - Block
+#   - Underline
+#   - Beam
+cursor_style: Block
 
 hide_cursor_when_typing: true
+
+dynamic_title: false
 
 # Live config reload (changes require restart)
 live_config_reload: true
