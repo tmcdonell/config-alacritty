@@ -19,10 +19,8 @@ window:
   # Specified in number of columns/lines, not pixels. If both are zero this
   # setting is ignored.
   dimensions:
-    # columns: 95
-    # lines: 75
-    columns: 192
-    lines: 150
+    columns: 95
+    lines: 75
 
   # Window padding (changes require restart)
   #
@@ -92,7 +90,7 @@ font:
   italic:
     # family: "Fira Code"
     family: "Source Code Pro"
-    style: Italic
+    style: "Medium Italic"
 
   # Point size of the font
   size: 14.0
