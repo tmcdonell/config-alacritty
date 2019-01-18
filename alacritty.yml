@@ -338,7 +338,7 @@ key_bindings:
   - { key: Delete,                        chars: "\x1b[3~"                     }
 
     # Open a new alacritty window
-  - { key: N,        mods: Command,       command: { program: "/usr/bin/open", args: [ "-n", "/Users/trevor/Applications/Alacritty.app" ]} }
+  - { key: N,        mods: Command,       command: { program: "/usr/bin/open", args: [ "-n", "/Applications/Alacritty.app" ]} }
 
     # shortcuts for tmux. the leader key is control-b (0x02)
   - { key: W,        mods: Command,       chars: "\x02&"                       }  # close tab (kill)
