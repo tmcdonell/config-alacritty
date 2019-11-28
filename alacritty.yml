@@ -19,7 +19,7 @@ window:
   # Specified in number of columns/lines, not pixels. If both are zero this
   # setting is ignored.
   dimensions:
-    columns: 95
+    columns: 100
     lines: 75
 
   # Window padding (changes require restart)
@@ -62,15 +62,6 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-  # Faux Scrolling
-  #
-  # The `faux_multiplier` setting controls the number of lines the terminal
-  # should scroll when the alternate screen buffer is active. This is used to
-  # allow mouse scrolling for applications like `man`.
-  #
-  # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
-
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
 
@@ -87,21 +78,23 @@ font:
   # The normal (roman) font face to use.
   # Style can be specified to pick a specific face.
   normal:
-    family: "Fira Code"
+    family: Iosevka
+    # family: "Fira Code"
     # family: "Source Code Pro"
-    style: Retina
+    # style: Retina
 
   # The bold font face
   bold:
-    family: "Fira Code"
+    family: Iosevka
+    # family: "Fira Code"
     # family: "Source Code Pro"
-    style: Bold
 
   # The italic font face
   italic:
+    family: Iosevka
     # family: "Fira Code"
-    family: "Source Code Pro"
-    style: "Medium Italic"
+    # family: "Source Code Pro"
+    # style: "Medium Italic"
 
   # Point size of the font
   size: 14.0
@@ -136,7 +129,7 @@ font:
   use_thin_strokes: true
 
 # When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
@@ -497,8 +490,8 @@ live_config_reload: true
 # Entries in shell.args are passed unmodified as arguments to the shell.
 shell:
   program: /usr/local/homebrew/bin/fish
-  args:
-    - --command=tmux
+  # args:
+  #   - --command=tmux
 
 debug:
   # Should display the render timer
