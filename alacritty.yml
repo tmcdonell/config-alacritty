@@ -20,7 +20,7 @@ window:
   # setting is ignored.
   dimensions:
     columns: 100
-    lines: 75
+    lines: 85
 
   # Window padding (changes require restart)
   #
@@ -61,17 +61,6 @@ scrolling:
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
   multiplier: 3
-
-  # Scroll to the bottom when new text is written to the terminal.
-  auto_scroll: false
-
-# Display tabs using this many cells (changes require restart)
-#
-# Some applications, like Emacs, rely on knowing about the width of a tab. To
-# prevent unexpected behavior in these applications, it's also required to
-# change the `it` value in terminfo when altering this setting.
-#
-tabspaces: 8
 
 # Font configuration (changes require restart)
 font:
@@ -490,8 +479,8 @@ live_config_reload: true
 # Entries in shell.args are passed unmodified as arguments to the shell.
 shell:
   program: /usr/local/homebrew/bin/fish
-  # args:
-  #   - --command=tmux
+  args:
+    - --command=tmux
 
 debug:
   # Should display the render timer
