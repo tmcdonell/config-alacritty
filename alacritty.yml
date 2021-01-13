@@ -68,6 +68,7 @@ font:
   # Style can be specified to pick a specific face.
   normal:
     family: Iosevka
+    style: Light
     # family: "Fira Code"
     # family: "Source Code Pro"
     # style: Retina
@@ -75,12 +76,15 @@ font:
   # The bold font face
   bold:
     family: Iosevka
+    style: Medium
     # family: "Fira Code"
     # family: "Source Code Pro"
 
   # The italic font face
   italic:
     family: Iosevka
+    style: "Light Italic"
+    # style: "Light Oblique"
     # family: "Fira Code"
     # family: "Source Code Pro"
     # style: "Medium Italic"
@@ -232,7 +236,7 @@ colors:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+bell:
   animation: EaseOutExpo
   color: '0xffffff'
   duration: 0
@@ -492,13 +496,13 @@ debug:
   # Log level
   #
   # Values for `log_level`:
-  #   - None
-  #   - Error
-  #   - Warn
-  #   - Info
-  #   - Debug
-  #   - Trace
-  log_level: None
+  #   - OFF
+  #   - ERROR
+  #   - WARN
+  #   - INFO
+  #   - DEBUG
+  #   - TRACE
+  log_level: OFF
 
   # Print all received window events.
   print_events: false
