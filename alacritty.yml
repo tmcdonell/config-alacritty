@@ -126,82 +126,69 @@ draw_bold_text_with_bright_colors: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-# custom_cursor_colors: false
+custom_cursor_colors: true
 
 # Colors
 colors:
-  # Default colours
+
+  # Tomorrow (https://github.com/aarowill/base16-alacritty/blob/master/colors/base16-tomorrow.yml)
+  # Default colors
   primary:
     background: '0xffffff'
-    foreground: '0x2e2e2d'
-
-  # Colors that should be used to draw the terminal cursor. If these are unset,
-  # the cursor colour will be the inverse of the cell colour.
-  # cursor:
-  #   text: '0x2e2e2d'
-  #   # text: '0x000000'
-  #   cursor: '0xffffff'
-
+    foreground: '0x4d4d4c'
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0xffffff'
+    cursor: '0x4d4d4c'
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xc62828'
-    green:   '0x558b2f'
-    yellow:  '0xf9a825'
-    blue:    '0x1565c0'
-    magenta: '0x6a1e9a'
-    cyan:    '0x00838f'
-    white:   '0xf2f2f2'
-
+    black:   '0xffffff'
+    red:     '0xc82829'
+    green:   '0x718c00'
+    yellow:  '0xeab700'
+    blue:    '0x4271ae'
+    magenta: '0x8959a8'
+    cyan:    '0x3e999f'
+    white:   '0x4d4d4c'
   # Bright colors
   bright:
-    black:   '0x545454'
-    red:     '0xef5350'
-    green:   '0x8bc34a'
-    yellow:  '0xffeb3b'
-    blue:    '0x64b5f6'
-    magenta: '0xba68c8'
-    cyan:    '0x26c6da'
-    white:   '0xe0e0e0'
+    black:   '0x8e908c'
+    red:     '0xf5871f'
+    green:   '0xe0e0e0'
+    yellow:  '0xd6d6d6'
+    blue:    '0x969896'
+    magenta: '0x282a2e'
+    cyan:    '0xa3685a'
+    white:   '0x1d1f21'
 
-  # Dim colors (Optional)
-  dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
-
-  # Tomorrow Night Bright
+  # # Tomorrow Night (https://github.com/aarowill/base16-alacritty/blob/master/colors/base16-tomorrow-night.yml)
+  # # Default colors
   # primary:
-  #   background: '0x000000'
-  #   foreground: '0xeaeaea'
-  #
+  #   background: '0x1d1f21'
+  #   foreground: '0xc5c8c6'
+  # # Colors the cursor will use if `custom_cursor_colors` is true
   # cursor:
-  #   text: '0x000000'
-  #   cursor: '0xffffff'
-  #
+  #   text: '0x1d1f21'
+  #   cursor: '0xc5c8c6'
+  # # Normal colors
   # normal:
-  #   black:   '0x000000'
-  #   red:     '0xd54e53'
-  #   green:   '0xb9ca4a'
-  #   yellow:  '0xe6c547'
-  #   blue:    '0x7aa6da'
-  #   magenta: '0xc397d8'
-  #   cyan:    '0x70c0ba'
-  #   white:   '0xffffff'
-  #
+  #   black:   '0x1d1f21'
+  #   red:     '0xcc6666'
+  #   green:   '0xb5bd68'
+  #   yellow:  '0xf0c674'
+  #   blue:    '0x81a2be'
+  #   magenta: '0xb294bb'
+  #   cyan:    '0x8abeb7'
+  #   white:   '0xc5c8c6'
+  # # Bright colors
   # bright:
-  #   black:   '0x666666'
-  #   red:     '0xff3334'
-  #   green:   '0x9ec400'
-  #   yellow:  '0xe7c547'
-  #   blue:    '0x7aa6da'
-  #   magenta: '0xb77ee0'
-  #   cyan:    '0x54ced6'
+  #   black:   '0x969896'
+  #   red:     '0xde935f'
+  #   green:   '0x282a2e'
+  #   yellow:  '0x373b41'
+  #   blue:    '0xb4b7b4'
+  #   magenta: '0xe0e0e0'
+  #   cyan:    '0xa3685a'
   #   white:   '0xffffff'
 
   # Indexed Colors
@@ -212,7 +199,7 @@ colors:
   # Example:
   #   `- { index: 16, color: '0xff00ff' }`
   #
-  indexed_colors: []
+  # indexed_colors: []
 
 # Visual Bell
 #
@@ -477,15 +464,6 @@ cursor:
 # Live config reload (changes require restart)
 live_config_reload: true
 
-# Shell
-#
-# You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
-# Entries in shell.args are passed unmodified as arguments to the shell.
-shell:
-  program: /usr/local/bin/fish
-  args:
-    - --command=tmux
-
 debug:
   # Should display the render timer
   render_timer: false
@@ -509,5 +487,14 @@ debug:
 
   # Record all characters and escape sequences as test data.
   ref_test: false
+
+# Shell
+#
+# You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
+# Entries in shell.args are passed unmodified as arguments to the shell.
+shell:
+  program: /usr/local/bin/fish
+  args:
+    - --command=tmux
 
 # vim: nospell
