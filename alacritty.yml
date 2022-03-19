@@ -53,6 +53,9 @@ window:
   #   - SimpleFullscreen
   startup_mode: Windowed
 
+  # Background opacity
+  opacity: 1.0
+
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will
   # disable scrolling.
@@ -228,8 +231,6 @@ bell:
   color: '0xffffff'
   duration: 0
 
-# Background opacity
-background_opacity: 1.0
 
 # Key bindings
 #
